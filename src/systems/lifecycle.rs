@@ -1,8 +1,8 @@
 use crate::ecs::{Playback, Screen, SokobanResources, TitleMenu, register_sokoban_components};
 use crate::systems::editor;
 use crate::systems::screens::{
-    complete, editor_panel, finale, gallery, hud, level_select, objectives_panel, pause,
-    random_setup, settings, title,
+    complete, editor_panel, finale, gallery, hud, level_select, objectives_panel, pause, settings,
+    title,
 };
 use crate::systems::world::build;
 use nightshade::prelude::*;
@@ -23,7 +23,6 @@ pub fn initialize(mut game: ResMut<SokobanResources>, world: &mut World) {
     let pause_handles = pause::build(&mut tree);
     let complete_handles = complete::build_panel(&mut tree);
     let finale_handles = finale::build_finale(&mut tree);
-    let random_handles = random_setup::build(&mut tree);
     let settings_handles = settings::build(&mut tree);
     let gallery_handles = gallery::build(&mut tree);
     let editor_handles = editor_panel::build(&mut tree);
@@ -35,7 +34,6 @@ pub fn initialize(mut game: ResMut<SokobanResources>, world: &mut World) {
     game.ui.pause = pause_handles;
     game.ui.complete = complete_handles;
     game.ui.finale = finale_handles;
-    game.ui.random = random_handles;
     game.ui.settings = settings_handles;
     game.ui.gallery = gallery_handles;
     game.ui.editor = editor_handles;
@@ -123,9 +121,6 @@ pub fn enter(game: &mut SokobanResources, world: &mut World, screen: Screen) {
     if matches!(screen, Screen::CampaignComplete) {
         finale::populate_finale(game, world);
     }
-    if matches!(screen, Screen::RandomSetup) {
-        random_setup::update_labels(game, world);
-    }
     if matches!(screen, Screen::Settings) {
         settings::update_labels(game, world);
     }
@@ -148,6 +143,11 @@ pub fn enter(game: &mut SokobanResources, world: &mut World, screen: Screen) {
     }
     if matches!(screen, Screen::Title) {
         game.title_menu = TitleMenu::default();
+        // Whatever the generator last had to say went with the board it was
+        // said about.
+        if !crate::systems::world::work::making(game) {
+            game.random_status.clear();
+        }
         title::update_menu(game, world);
         // No board behind the menu. Whatever was being played is taken down
         // and the sky is put up in its place.
@@ -172,7 +172,6 @@ pub fn enter(game: &mut SokobanResources, world: &mut World, screen: Screen) {
             .first()
             .copied()
             .or(Some(game.ui.levels.back_button)),
-        Screen::RandomSetup => Some(game.ui.random.generate_button),
         Screen::Settings => Some(game.ui.settings.back_button),
         Screen::Story => None,
         Screen::Gallery => None,
@@ -223,11 +222,6 @@ fn apply_visibility(game: &SokobanResources, world: &mut World, screen: Screen) 
         world,
         handles.gallery.root,
         matches!(screen, Screen::Gallery),
-    );
-    ui_set_visible(
-        world,
-        handles.random.root,
-        matches!(screen, Screen::RandomSetup),
     );
     ui_set_visible(
         world,

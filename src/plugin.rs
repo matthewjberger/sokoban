@@ -5,12 +5,11 @@ pub struct SokobanPlugin;
 
 /// Every screen the game has. Each one gets the same entry hook, which is where
 /// a screen sets up whatever it needs to be looked at.
-const SCREENS: [Screen; 11] = [
+const SCREENS: [Screen; 10] = [
     Screen::Title,
     Screen::LevelSelect,
     Screen::Story,
     Screen::Settings,
-    Screen::RandomSetup,
     Screen::Gallery,
     Screen::InGame,
     Screen::Paused,
@@ -52,7 +51,6 @@ impl Plugin for SokobanPlugin {
                 crate::systems::screens::pause::handle_input,
                 crate::systems::screens::complete::handle_input,
                 crate::systems::screens::finale::handle_input,
-                crate::systems::screens::random_setup::handle_input,
                 crate::systems::screens::settings::handle_input,
                 while_in(
                     Screen::Story,

@@ -6,7 +6,7 @@
 //! answer either way, and a game that keeps drawing while it waits.
 
 use crate::ecs::{Making, MapOrigin, MapRequest, Screen, SokobanResources};
-use crate::generator::{Outcome, Run, escalate};
+use crate::generator::{Demand, Outcome, Run, demand};
 use crate::schema::{Map, complexity};
 use crate::shortcut::skipped;
 use crate::solver::{DEFAULT_STATE_BUDGET, Progress, Search};
@@ -56,7 +56,7 @@ pub fn survives(work: &Work, screen: Screen) -> bool {
     match work {
         Work::Making(..) => matches!(
             screen,
-            Screen::InGame | Screen::Paused | Screen::RandomSetup | Screen::MapComplete
+            Screen::InGame | Screen::Paused | Screen::Title | Screen::MapComplete
         ),
         Work::Solving(..) => matches!(screen, Screen::InGame | Screen::Paused),
         Work::Analysing(..) => matches!(screen, Screen::Editor),
@@ -85,16 +85,15 @@ pub fn make(game: &mut SokobanResources, making: Making) {
         Making::RunNext => game.endless_cleared += 1,
         Making::Single => {}
     }
-    // A single board is the one the dials describe. A board of a run is that
-    // board plus everything the run has climbed since it started.
-    let recipe = match making {
-        Making::Single => game.recipe,
-        Making::RunStart | Making::RunNext => {
-            escalate(&game.recipe, game.endless_cleared, game.endless_weight)
-        }
+    // Nothing here says what to build. A single board is whatever the roll
+    // hands back, and a board of a run is the same roll held to what the run
+    // has climbed to.
+    let demand = match making {
+        Making::Single => Demand::default(),
+        Making::RunStart | Making::RunNext => demand(game.endless_cleared, game.endless_weight),
     };
-    game.work = Some(Work::Making(Box::new(Run::new(&recipe)), making));
-    game.random_status = "generating".to_string();
+    game.work = Some(Work::Making(Box::new(Run::rolling(demand)), making));
+    game.random_status = "rolling a board".to_string();
     game.notice = "generating the next board".to_string();
 }
 
@@ -142,9 +141,9 @@ fn advance_making(
             if game.elapsed - game.work_said_at >= SAY_EVERY {
                 game.work_said_at = game.elapsed;
                 let progress = format!(
-                    "generating   ·   {} boards tried, {} positions walked",
+                    "rolling   ·   {} boards tried across {} shapes",
                     run.attempted(),
-                    run.explored()
+                    run.rolled().max(1)
                 );
                 game.random_status = progress.clone();
                 game.notice = progress;
@@ -152,15 +151,20 @@ fn advance_making(
             game.work = Some(Work::Making(run, making));
         }
         Outcome::Ready(map) => hand_over(game, world, *map, making),
+        // A rolling run reaches for another shape rather than stopping, so
+        // getting here at all means it spent everything it had on every shape it
+        // tried. There is nothing to send the player back to: the button they
+        // pressed is the whole of the screen and pressing it again is the
+        // answer.
         Outcome::Barren => {
             let cleared = game.endless_cleared;
-            game.random_status = "no solvable map at these settings".to_string();
+            game.random_status = "nothing came out of that   ·   press again".to_string();
             game.notice = match making {
                 Making::RunNext => format!("{cleared} cleared, and no board after this one"),
-                _ => "no solvable map at these settings".to_string(),
+                _ => "nothing came out of that".to_string(),
             };
             if matches!(making, Making::RunStart) {
-                next_state(world, Screen::RandomSetup);
+                next_state(world, Screen::Title);
             }
         }
     }

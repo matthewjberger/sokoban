@@ -30,35 +30,10 @@ pub struct TitleHandles {
     pub random_button: Entity,
     pub endless_button: Entity,
     pub play_back_button: Entity,
-}
-
-/// The random puzzle setup screen: one control per dial on the recipe, plus
-/// the button that hands it to the generator.
-#[derive(Clone, Default)]
-pub struct RandomHandles {
-    pub root: Entity,
-    pub summary_label: Entity,
-    pub preset_button: Entity,
-    pub preset_label: Entity,
-    pub size_button: Entity,
-    pub size_label: Entity,
-    pub layers_button: Entity,
-    pub layers_label: Entity,
-    pub wings_button: Entity,
-    pub wings_label: Entity,
-    pub crates_button: Entity,
-    pub crates_label: Entity,
-    pub mechanics_button: Entity,
-    pub mechanics_label: Entity,
-    pub character_button: Entity,
-    pub character_label: Entity,
-    pub generate_button: Entity,
-    pub solve_button: Entity,
-    pub endless_button: Entity,
-    pub auto_box: Entity,
-    pub complexity_slider: Entity,
-    pub complexity_label: Entity,
-    pub back_button: Entity,
+    /// What the generator is doing, for the wait between pressing the button
+    /// and a board arriving. There is no screen in between any more, so this is
+    /// where that wait is shown.
+    pub status_label: Entity,
 }
 
 #[derive(Default, Clone)]
@@ -208,7 +183,6 @@ pub struct UiHandles {
     pub root: Entity,
     pub title: TitleHandles,
     pub levels: LevelSelectHandles,
-    pub random: RandomHandles,
     pub settings: SettingsHandles,
     pub hud: HudHandles,
     pub pause: PauseHandles,

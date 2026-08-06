@@ -721,23 +721,45 @@ fn analyze_generator(count: usize) {
         );
     }
 
+    // The button itself, which asks for nothing but a board and rolls another
+    // shape whenever the one in hand is slow to give one up. This is the only
+    // reading here that is of what a player actually presses.
+    let rolls = count.max(8);
+    let mut found = 0;
+    for _ in 0..rolls {
+        let Some(map) = generator::generate_rolling(generator::Demand::default()) else {
+            continue;
+        };
+        found += 1;
+        println!(
+            "rolled {} by {} · {} floors · party {} · crates {} goals {} · par {} weight {}",
+            map.floor_width,
+            map.floor_height,
+            map.floors.len(),
+            map.followers.len() + 1,
+            map.crates.len(),
+            map.goals.len(),
+            map.par,
+            schema::complexity(&map),
+        );
+    }
+    println!("rolled {found} of {rolls} boards");
+
     check_run(count.max(6));
 }
 
-/// Plays a run out on paper: board after board, each one asked for by the run
-/// that has cleared the ones before it. A run that keeps handing out the same
+/// Plays a run out on paper: board after board, each one rolled fresh and held
+/// to what the run has cleared so far. A run that keeps handing out the same
 /// board is a demonstration rather than a run, so the reading that matters is
-/// whether the weights climb and whether the dials can still produce a board
-/// once they have.
+/// whether the weights climb and whether a roll can still meet what the run is
+/// asking for once they have.
 fn check_run(boards: usize) {
     use crate::schema::complexity;
 
-    let base = Recipe::default();
     let mut reached = 0;
     for cleared in 0..boards {
-        let recipe = generator::escalate(&base, cleared, reached);
-        let Some(map) = generator::generate(&recipe) else {
-            println!("run board {}: nothing at these settings", cleared + 1);
+        let Some(map) = generator::generate_rolling(generator::demand(cleared, reached)) else {
+            println!("run board {}: nothing came out of the roll", cleared + 1);
             break;
         };
         reached = complexity(&map);

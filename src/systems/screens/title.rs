@@ -1,12 +1,15 @@
 //! The front screen. Two menus in one place: the first says what kind of thing
-//! you want to do, and the one behind PLAY says which way you want to play. The
-//! boards themselves are picked on their own screen, so nothing here has to
-//! carry a list.
+//! you want to do, and the one behind PLAY says which way you want to play. A
+//! shipped board is picked on its own screen and a random one is not picked at
+//! all, so nothing here has to carry a list.
 
-use crate::ecs::{MapOrigin, MapRequest, Screen, SokobanResources, TitleHandles, TitleMenu};
+use crate::ecs::{
+    Making, MapOrigin, MapRequest, Screen, SokobanResources, TitleHandles, TitleMenu,
+};
 use crate::maps::load_map;
 use crate::systems::input::pad_pressed;
 use crate::systems::screens::widgets;
+use crate::systems::world::work;
 use crate::theme::*;
 use nightshade::prelude::*;
 
@@ -60,6 +63,18 @@ pub fn build(tree: &mut UiTreeBuilder) -> TitleHandles {
             .entity();
 
         build_menus(tree, &mut handles);
+
+        handles.status_label = tree
+            .add_node()
+            .window(
+                Rl(vec2(50.0, 100.0)) + Ab(vec2(0.0, -MENU_FOOTER_SPACE + 8.0)),
+                Ab(vec2(900.0, 20.0)),
+                Anchor::TopCenter,
+            )
+            .with_text("", 14.0)
+            .text_center()
+            .color_raw::<UiBase>(TEXT_DIM)
+            .entity();
 
         tree.add_node()
             .window(
@@ -125,6 +140,20 @@ pub fn update_menu(game: &SokobanResources, world: &mut World) {
     ui_set_visible(world, handles.play_column, !root);
 }
 
+/// Puts whatever the generator is doing under the menu. There is no screen
+/// between the button and the board any more, so the wait is shown here, and it
+/// is written only when it changes, because a line rewritten every frame is a
+/// line laid out every frame.
+fn say_status(game: &mut SokobanResources, world: &mut World) {
+    if game.random_status == game.random_status_shown {
+        return;
+    }
+    game.random_status_shown = game.random_status.clone();
+    let label = game.ui.title.status_label;
+    let line = game.random_status.clone();
+    ui_set_text(world, label, &line);
+}
+
 /// Which button a pad should land on when a menu opens.
 pub fn menu_focus(game: &SokobanResources) -> Entity {
     match game.title_menu {
@@ -138,6 +167,8 @@ pub fn handle_input(mut game: ResMut<SokobanResources>, world: &mut World) {
     if !in_state(world, Screen::Title) {
         return;
     }
+
+    say_status(game, world);
 
     let handles = game.ui.title.clone();
     let keyboard = &world.res::<Input>().keyboard;
@@ -204,8 +235,11 @@ pub fn handle_input(mut game: ResMut<SokobanResources>, world: &mut World) {
     if levels {
         next_state(world, Screen::LevelSelect);
     }
+    // A board rather than a screen of dials to describe one. What comes out is
+    // rolled across every mechanic, every shape and every party the game has,
+    // and the screen it goes to is the board itself.
     if random {
-        next_state(world, Screen::RandomSetup);
+        work::make(game, Making::Single);
     }
     if gallery {
         next_state(world, Screen::Gallery);
@@ -217,10 +251,7 @@ pub fn handle_input(mut game: ResMut<SokobanResources>, world: &mut World) {
         next_state(world, Screen::Settings);
     }
     if endless {
-        // The recipe and the switch that makes a run drive itself both live on
-        // the setup screen, so starting a run goes through it rather than round
-        // it.
-        next_state(world, Screen::RandomSetup);
+        work::make(game, Making::RunStart);
     }
     if story {
         next_state(world, Screen::Story);

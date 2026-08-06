@@ -267,32 +267,30 @@ const MIXED: HazardStage = HazardStage {
     ..NOTHING
 };
 
-/// Which stage a recipe currently sits on, so the dial can advance from
-/// wherever the recipe was left.
-pub fn hazard_stage_of(recipe: &Recipe) -> usize {
-    HAZARD_STAGES
-        .iter()
-        .position(|stage| {
-            stage.ice_patches == recipe.ice_patches
-                && stage.pits == recipe.pits
-                && stage.portal_pairs == recipe.portal_pairs
-                && stage.one_way_arrows == recipe.one_way_arrows
-                && stage.belts == recipe.belts
-                && stage.fragile_squares == recipe.fragile_squares
-                && stage.switch_gates == recipe.switch_gates
-                && stage.brittle_walls == recipe.brittle_walls
-                && stage.water_squares == recipe.water_squares
-                && stage.incinerators == recipe.incinerators
-                && stage.spike_beds == recipe.spike_beds
-                && stage.glass_panes == recipe.glass_panes
-                && stage.watchers == recipe.watchers
-                && stage.boulders == recipe.boulders
-                && stage.pallet_mirrors == recipe.pallet_mirrors
-                && stage.gem_sockets == recipe.gem_sockets
-                && stage.gem_locks == recipe.gem_locks
-                && stage.party == recipe.party
-        })
-        .unwrap_or(0)
+/// Lays one stage's scatter on top of whatever the recipe already asks for,
+/// which is what lets a rolled board wear several mechanics at once. The table
+/// stays the one list of what a mechanic is worth, so teaching the generator a
+/// new one is still a line in it rather than a second place to add it.
+fn add_hazards(recipe: &mut Recipe, index: usize) {
+    let stage = &HAZARD_STAGES[index % HAZARD_STAGES.len()];
+    recipe.ice_patches += stage.ice_patches;
+    recipe.pits += stage.pits;
+    recipe.portal_pairs += stage.portal_pairs;
+    recipe.one_way_arrows += stage.one_way_arrows;
+    recipe.belts += stage.belts;
+    recipe.fragile_squares += stage.fragile_squares;
+    recipe.switch_gates += stage.switch_gates;
+    recipe.brittle_walls += stage.brittle_walls;
+    recipe.water_squares += stage.water_squares;
+    recipe.incinerators += stage.incinerators;
+    recipe.spike_beds += stage.spike_beds;
+    recipe.glass_panes += stage.glass_panes;
+    recipe.watchers += stage.watchers;
+    recipe.boulders += stage.boulders;
+    recipe.pallet_mirrors += stage.pallet_mirrors;
+    recipe.gem_sockets += stage.gem_sockets;
+    recipe.gem_locks += stage.gem_locks;
+    recipe.party = recipe.party.max(stage.party);
 }
 
 pub fn apply_hazards(recipe: &mut Recipe, index: usize) {
@@ -385,56 +383,127 @@ pub fn apply_complexity(recipe: &mut Recipe, notch: u8) {
     recipe.solver_budget = step.solver_budget;
 }
 
-/// What a run asks for on its next board, given the dials it started from and
-/// how many it has cleared. A run that keeps handing out the same board is a
-/// demonstration rather than a run, so each board cleared asks for a little
-/// more: another mechanic to work it out with, then more to work out, then more
-/// ground to work it out on. The floor under the schema's own reading of a
-/// board climbs alongside, so what comes out is measurably heavier and not only
-/// dialled heavier.
-///
-/// It is a function of the starting dials rather than a nudge to the last
-/// recipe, so the same run always climbs the same way and the player's own
-/// settings stay the floor rather than being edited underneath them.
-pub fn escalate(base: &Recipe, cleared: usize, reached: u32) -> Recipe {
-    let mut recipe = *base;
-    // Climbing, never cycling. The dial wraps when it is asked past its end, and
-    // a run that started on the mix would wrap round to a bare room while the
-    // weight it has to beat stays where the mix put it, which is a floor no bare
-    // room can reach.
-    apply_hazards(
-        &mut recipe,
-        (hazard_stage_of(base) + cleared / 2).min(HAZARD_STAGES.len() - 1),
-    );
-    apply_complexity(
-        &mut recipe,
-        base.complexity
-            .saturating_add((cleared / 2).min(u8::MAX as usize) as u8),
-    );
-    let room = (cleared / 5) as i32;
-    recipe.floor_width = (base.floor_width + room).min(MAX_RUN_EXTENT);
-    recipe.floor_height = (base.floor_height + room).min(MAX_RUN_EXTENT);
-    // Weight is what a board is made of and moves are how long it takes, and a
-    // run that climbs one without the other gets richer boards that fall over in
-    // eight moves, so both climb.
-    recipe.minimum_moves = recipe
-        .minimum_moves
-        .max(base.minimum_moves + cleared * 2)
-        .min(base.minimum_moves + MOST_EXTRA_MOVES);
-    // Never lighter than the board just cleared. Asking for strictly more every
-    // time is a run that eventually asks for what cannot be built. Asking for
-    // no less, while the dials climb, is a run that only goes one way.
-    recipe.minimum_complexity = base.minimum_complexity.max(reached);
-    recipe
+/// What a board has to be worth to be handed out, which is the whole of what a
+/// run carries from one board to the next. The shape of the next board is
+/// rolled rather than remembered, so this is deliberately not a recipe: it says
+/// what to insist on, never what to build.
+#[derive(Clone, Copy, PartialEq, Debug)]
+pub struct Demand {
+    pub minimum_moves: usize,
+    pub minimum_complexity: u32,
 }
 
-/// How much longer than its starting settings a run will ask a board to take.
-/// Past this the search is being asked for a needle rather than a puzzle.
+impl Default for Demand {
+    fn default() -> Self {
+        Self {
+            minimum_moves: OPENING_MOVES,
+            minimum_complexity: 0,
+        }
+    }
+}
+
+/// The fewest moves a board handed out at random is allowed to take. Below this
+/// what comes out is a walk rather than a puzzle.
+const OPENING_MOVES: usize = 10;
+
+/// How much longer than its opening a run will ask a board to take. Past this
+/// the search is being asked for a needle rather than a puzzle.
 const MOST_EXTRA_MOVES: usize = 40;
 
-/// How large a run will let a floor grow. Past this the search is spending its
-/// budget on walking rather than on anything worth working out.
-const MAX_RUN_EXTENT: i32 = 16;
+/// What a run asks of its next board. A run that keeps handing out the same
+/// weight of board is a demonstration rather than a run, so every board cleared
+/// raises the floor under the one after it, in how long it takes and in what
+/// the schema makes of what it is built from. The shape stays rolled either
+/// way, because what makes the next board different should be the whole board
+/// and not one dial nudged along.
+pub fn demand(cleared: usize, reached: u32) -> Demand {
+    Demand {
+        minimum_moves: (OPENING_MOVES + cleared * 2).min(OPENING_MOVES + MOST_EXTRA_MOVES),
+        // Near the weight of the board just cleared rather than at it. What a
+        // rolled board is built from is not something the roll can be told to
+        // repeat, so insisting on matching the last one is insisting on a floor
+        // most rolls fall under, and a run that asks for that is a run that
+        // stops at the first heavy board it happens to hand out.
+        minimum_complexity: reached * 3 / 4,
+    }
+}
+
+/// How many shapes a run rolls through before it is asking for nothing but a
+/// board. Every one that comes to nothing gives a little of the demand up, so a
+/// floor no roll can reach becomes one some roll can rather than one the run
+/// stops on.
+const EASE_STEPS: usize = 12;
+
+/// What a run still insists on, having rolled this many shapes without a board.
+fn eased(demand: Demand, rolled: usize) -> Demand {
+    let held = 1.0 - rolled.min(EASE_STEPS) as f32 / EASE_STEPS as f32;
+    Demand {
+        minimum_moves: OPENING_MOVES
+            + (demand.minimum_moves.saturating_sub(OPENING_MOVES) as f32 * held) as usize,
+        minimum_complexity: (demand.minimum_complexity as f32 * held) as u32,
+    }
+}
+
+/// How many mechanics one rolled board may be asked to carry. Every one of them
+/// multiplies the layouts that get thrown away, and a run that rolls a fresh
+/// board the moment one is slow to come out would otherwise spend all its time
+/// on shapes nobody ever sees.
+const MOST_ROLLED_STAGES: usize = 3;
+
+/// The shapes a rolled board is built on. Small enough to prove, and varied
+/// enough that two boards in a row rarely look alike.
+const ROLLED_SHAPES: [(i32, i32); 6] = [(7, 7), (8, 7), (9, 8), (10, 9), (12, 9), (14, 11)];
+
+/// A whole board asked for at random: its floor, its storeys, who is playing,
+/// how many of them there are, and whichever mechanics it happens to draw.
+///
+/// Nothing here is a setting. A generator behind a screen of dials is a
+/// generator most people never turn on, so the one control is the button, and
+/// what comes out is meant to surprise the person who pressed it.
+pub fn roll(rng: &mut impl Rng, demand: Demand) -> Recipe {
+    let (floor_width, floor_height) = ROLLED_SHAPES[rng.random_range(0..ROLLED_SHAPES.len())];
+    let mut recipe = Recipe {
+        floor_width,
+        floor_height,
+        // A storey or a side floor multiplies what the search has to walk
+        // without deepening the puzzle, so both are the exception rather than
+        // the rule.
+        layers: if rng.random_bool(0.18) { 2 } else { 1 },
+        wings: if rng.random_bool(0.12) { 1 } else { 0 },
+        skin: Skin::ALL[rng.random_range(0..Skin::ALL.len())],
+        character: Character::ALL[rng.random_range(0..Character::ALL.len())],
+        ..Default::default()
+    };
+    // From a bare room, so what the board wears is what the roll below puts on
+    // it rather than that plus whatever the default carried.
+    apply_hazards(&mut recipe, 0);
+    apply_complexity(&mut recipe, rng.random_range(1..=4));
+
+    let mut taken: Vec<usize> = Vec::new();
+    while taken.len() < rng.random_range(1..=MOST_ROLLED_STAGES) {
+        let index = rng.random_range(1..HAZARD_STAGES.len());
+        if !taken.contains(&index) {
+            taken.push(index);
+            add_hazards(&mut recipe, index);
+        }
+    }
+
+    // A party is rolled on its own rather than left to the one stage that names
+    // one, because who is playing is as much of the puzzle as what is on the
+    // floor. Every member is a different class, so this is bounded by how many
+    // classes there are.
+    recipe.party = recipe
+        .party
+        .max(match rng.random_range(0..10) {
+            0..=5 => 1,
+            6..=8 => 2,
+            _ => 3,
+        })
+        .min(Character::ALL.len());
+    recipe.minimum_moves = recipe.minimum_moves.max(demand.minimum_moves);
+    recipe.minimum_complexity = demand.minimum_complexity;
+    recipe
+}
 
 /// The named starting points the menu cycles through. Each one is only a
 /// [`Recipe`], so the dials stay editable from there.
@@ -508,16 +577,6 @@ fn hazard_stage_named(name: &str) -> usize {
         .unwrap_or(0)
 }
 
-pub fn preset_name(index: usize) -> &'static str {
-    match index % PRESET_COUNT {
-        0 => "YARD",
-        1 => "FREEZER",
-        2 => "QUARRY",
-        3 => "TOWER",
-        _ => "DEPOT",
-    }
-}
-
 /// Roughly what laying a board out costs, measured in positions walked, so a
 /// run that keeps rejecting layouts yields the frame as readily as one grinding
 /// through a search.
@@ -538,6 +597,17 @@ const RUN_POSITIONS: usize = 40_000_000;
 /// one, so a run that can afford a single candidate is a run that has stopped
 /// looking.
 const LEAST_ATTEMPTS: usize = 20;
+
+/// What one rolled shape is given before another is rolled in its place. A
+/// generator that grinds at a shape it cannot fill is the whole of what makes
+/// one unusable, and the cheapest answer is not a longer wait but a different
+/// board.
+const PATIENCE: usize = 200_000;
+
+/// How many layouts one rolled shape is worth trying. The dials a recipe
+/// carries are written for somebody who asked for that recipe and will wait for
+/// it; a rolled shape is one of many and is held to a shorter leash.
+const MOST_ROLL_ATTEMPTS: usize = 400;
 
 /// What one candidate of this shape is worth spending on. A storey or a side
 /// floor multiplies the positions a search has to walk without making the
@@ -589,13 +659,21 @@ pub enum Outcome {
 /// solution can short circuit is thrown away with the unsolvable ones.
 pub struct Run {
     recipe: Recipe,
+    /// What to insist on, for a run that rolls its own shapes. A run handed a
+    /// recipe to fill has nothing to insist on beyond that recipe, and stops
+    /// when the recipe runs dry rather than reaching for another one.
+    demand: Option<Demand>,
     /// What one candidate of this shape is allowed to walk.
     budget: usize,
     attempts_left: usize,
     attempted: usize,
+    rolled: usize,
     /// Positions walked across the whole run, which is what a run is really
     /// spending and the only bound that holds for every shape of board.
     spent: usize,
+    /// The same, since the shape in hand was rolled. A shape that has had this
+    /// much spent on it without giving anything up is a shape to leave.
+    since_roll: usize,
     candidate: Option<(Map, Search)>,
 }
 
@@ -603,12 +681,38 @@ impl Run {
     pub fn new(recipe: &Recipe) -> Self {
         Self {
             recipe: *recipe,
+            demand: None,
             budget: budget_for(recipe),
             attempts_left: recipe.attempts.max(1),
             attempted: 0,
+            rolled: 0,
             spent: 0,
+            since_roll: 0,
             candidate: None,
         }
+    }
+
+    /// A run that asks for a board rather than for a particular board. It rolls
+    /// a shape, gives it a fair try, and rolls another the moment that one
+    /// stops looking promising, so what a player waits on is a board arriving
+    /// rather than one shape being ground at until it gives in.
+    pub fn rolling(demand: Demand) -> Self {
+        let mut run = Self::new(&roll(&mut rand::rng(), demand));
+        run.demand = Some(demand);
+        run.attempts_left = run.attempts_left.clamp(1, MOST_ROLL_ATTEMPTS);
+        run.rolled = 1;
+        run
+    }
+
+    /// Throws the shape in hand away and rolls another, keeping what the run has
+    /// spent and what it is holding out for.
+    fn reroll(&mut self, demand: Demand) {
+        self.recipe = roll(&mut rand::rng(), eased(demand, self.rolled));
+        self.budget = budget_for(&self.recipe);
+        self.attempts_left = self.recipe.attempts.clamp(1, MOST_ROLL_ATTEMPTS);
+        self.since_roll = 0;
+        self.rolled += 1;
+        self.candidate = None;
     }
 
     /// How many boards have been laid out so far, and how far the search has got
@@ -618,11 +722,10 @@ impl Run {
         self.attempted
     }
 
-    pub fn explored(&self) -> usize {
-        self.candidate
-            .as_ref()
-            .map(|(_, search)| search.explored())
-            .unwrap_or(0)
+    /// How many shapes have been tried, which is the other half of what a screen
+    /// waiting on a board has to say.
+    pub fn rolled(&self) -> usize {
+        self.rolled
     }
 
     /// Spends about this many positions worth of work and says where that left
@@ -632,8 +735,18 @@ impl Run {
         while spent < slice {
             if self.candidate.is_none() {
                 spent += LAYOUT_COST;
-                if self.attempts_left == 0 || self.spent > RUN_POSITIONS {
+                if self.spent > RUN_POSITIONS {
                     return Outcome::Barren;
+                }
+                // A shape that has had its share and given nothing up is a
+                // shape to leave rather than one to keep asking. Rolling
+                // another costs nothing and is the whole of why waiting on this
+                // ends.
+                if self.attempts_left == 0 || self.since_roll > PATIENCE {
+                    let Some(demand) = self.demand else {
+                        return Outcome::Barren;
+                    };
+                    self.reroll(demand);
                 }
                 self.attempts_left -= 1;
                 self.attempted += 1;
@@ -656,6 +769,7 @@ impl Run {
             let walked = search.explored() - before;
             spent += walked;
             self.spent += walked;
+            self.since_roll += walked;
             match progress {
                 Progress::Running => {}
                 Progress::Solved(route) => {
@@ -686,6 +800,20 @@ impl Run {
 /// [`Run`] instead, so the window keeps drawing while the search works.
 pub fn generate(recipe: &Recipe) -> Option<Map> {
     let mut run = Run::new(recipe);
+    loop {
+        match run.advance(65_536) {
+            Outcome::Working => {}
+            Outcome::Ready(map) => return Some(*map),
+            Outcome::Barren => return None,
+        }
+    }
+}
+
+/// The same for a run that rolls its own shapes, which is the one the game
+/// itself asks for. The batch tools read it here so what they report on is what
+/// the button does.
+pub fn generate_rolling(demand: Demand) -> Option<Map> {
+    let mut run = Run::rolling(demand);
     loop {
         match run.advance(65_536) {
             Outcome::Working => {}

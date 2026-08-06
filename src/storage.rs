@@ -1,4 +1,4 @@
-#[cfg(not(target_arch = "wasm32"))]
+﻿#[cfg(not(target_arch = "wasm32"))]
 use crate::schema::MIN_EXTENT;
 use crate::schema::Map;
 use nightshade::prelude::serde_json;

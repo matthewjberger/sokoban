@@ -998,6 +998,15 @@ pub enum Skin {
 }
 
 impl Skin {
+    pub const ALL: [Skin; 6] = [
+        Self::Warehouse,
+        Self::Glacier,
+        Self::Quarry,
+        Self::Vault,
+        Self::Drift,
+        Self::Grove,
+    ];
+
     pub fn label(self) -> &'static str {
         match self {
             Self::Warehouse => "WAREHOUSE",

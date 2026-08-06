@@ -1,5 +1,4 @@
 use crate::ecs::UiHandles;
-use crate::generator::Recipe;
 use crate::rules::{BeamSegment, Direction, MapState, Step};
 use crate::schema::{GemColor, Map, Position, Slot, map_blank};
 use crate::systems::world::work::Work;
@@ -13,7 +12,6 @@ pub enum Screen {
     LevelSelect,
     Story,
     Settings,
-    RandomSetup,
     Gallery,
     InGame,
     Paused,
@@ -533,8 +531,6 @@ pub struct SokobanResources {
     pub camera: CameraRig,
     pub repeat: InputRepeat,
     pub editor: EditorState,
-    pub recipe: Recipe,
-    pub preset_index: usize,
     pub elapsed: f32,
     pub total_moves: u32,
     pub pending: Option<MapRequest>,
@@ -543,6 +539,9 @@ pub struct SokobanResources {
     /// stays alive while it works.
     pub work: Option<Work>,
     pub random_status: String,
+    /// The last of those actually written to the screen, so a line that has not
+    /// changed is not laid out again on the strength of being read again.
+    pub random_status_shown: String,
     /// When the running commentary on a search was last written. A search takes
     /// a slice of every frame, and a line that says how far it has got is a
     /// line that would otherwise be re-laid out sixty times a second.

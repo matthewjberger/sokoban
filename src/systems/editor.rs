@@ -152,8 +152,8 @@ pub fn update(mut game: ResMut<SokobanResources>, world: &mut World) {
 /// Throws the map away for a generated one. The editor asks first, because the
 /// board on screen may be an hour of somebody's work.
 pub fn randomize(game: &mut SokobanResources, world: &mut World) {
-    let Some(map) = crate::generator::generate(&game.recipe) else {
-        game.editor.status = "no solvable map at the current recipe".to_string();
+    let Some(map) = crate::generator::generate_rolling(crate::generator::Demand::default()) else {
+        game.editor.status = "nothing came out of that roll".to_string();
         return;
     };
     game.editor.map = map;
