@@ -49,7 +49,7 @@ enum Check {
         #[arg(default_value_t = DEFAULT_STATE_BUDGET)]
         budget: usize,
     },
-    /// Generates boards from every preset and every hazard setting.
+    /// Rolls boards, and generates one from every preset and every mechanic.
     Random {
         /// How many boards to ask each setting for.
         #[arg(default_value_t = 3)]
@@ -703,14 +703,12 @@ fn analyze_generator(count: usize) {
         println!("hazards {:<14} {found} of {count} runs solved", stage.name);
     }
 
-    // Every setting of the shape dials has to be able to produce something too.
-    // A storey or a side floor multiplies the board, and a board the search
-    // cannot finish inside its budget is a dial that only ever answers no.
-    // The last of these is the largest board the setup screen can ask for, which
-    // is the one that decides whether the dials are controls or traps.
+    // Every shape a board can be asked for has to be able to produce something
+    // too. A storey or a side floor multiplies the board, and one the search
+    // cannot finish inside its budget is a shape that only ever answers no.
     for (layers, wings, width, height, notch) in [
-        // The smallest floor the setup screen offers, which is the one a budget
-        // scaled against a larger board rounds away to nothing.
+        // The smallest floor anything asks for, which is the one a budget scaled
+        // against a larger board rounds away to nothing.
         (1, 0, 7, 7, 2),
         (1, 0, 8, 7, 2),
         (2, 0, 8, 7, 2),

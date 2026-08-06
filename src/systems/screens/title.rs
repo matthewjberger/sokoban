@@ -141,14 +141,10 @@ pub fn update_menu(game: &SokobanResources, world: &mut World) {
 }
 
 /// Puts whatever the generator is doing under the menu. There is no screen
-/// between the button and the board any more, so the wait is shown here, and it
-/// is written only when it changes, because a line rewritten every frame is a
-/// line laid out every frame.
-fn say_status(game: &mut SokobanResources, world: &mut World) {
-    if game.random_status == game.random_status_shown {
-        return;
-    }
-    game.random_status_shown = game.random_status.clone();
+/// between the button and the board any more, so the wait is shown here. The
+/// line holds still while the work runs, so writing it every frame is a write
+/// the text cache throws away rather than a layout of the whole tree.
+fn say_status(game: &SokobanResources, world: &mut World) {
     let label = game.ui.title.status_label;
     let line = game.random_status.clone();
     ui_set_text(world, label, &line);

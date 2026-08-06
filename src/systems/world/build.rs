@@ -58,6 +58,18 @@ pub fn world_position(at: Position, height: f32) -> Vec3 {
 /// is built once, and which one is on show is a visibility question rather than
 /// a rebuilding one.
 pub fn start_map(game: &mut SokobanResources, world: &mut World, request: MapRequest) {
+    // A board arriving answers whatever was being generated, because whoever
+    // asked for one is now looking at one. Without this, picking a campaign
+    // level while a random board is still being rolled means the roll finishes
+    // a moment later and takes the level away again. The run that hands a board
+    // over has already taken its own work out of here, so it never cancels
+    // itself.
+    if matches!(
+        game.work,
+        Some(crate::systems::world::work::Work::Making(..))
+    ) {
+        game.work = None;
+    }
     clear(game, world);
 
     game.origin = request.origin;

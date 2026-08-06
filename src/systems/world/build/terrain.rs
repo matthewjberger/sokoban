@@ -10,7 +10,8 @@ use crate::palette::{
     Palette, SOCKET_BODY, SPIKE_BODY, gem_body, gem_light, palette_for,
 };
 use crate::schema::{
-    Direction, GemColor, Position, Slant, Slot, Tile, map_floor_skin, map_positions, map_tile,
+    Direction, GemColor, Map, Position, Slant, Slot, Tile, map_floor_index, map_floor_skin,
+    map_positions, map_tile,
 };
 use crate::systems::world::build::{
     GATE_CLOSED_Y, block, chrome, frozen, glazed, glowing, layer_height, machined, solid,
@@ -125,14 +126,14 @@ fn build_plinth(game: &mut SokobanResources, world: &mut World, slot: Slot) {
 /// their faces at one height, which is a whole board's worth of surfaces
 /// fighting for the same pixels. The depot is six floors in a lattice, so that
 /// is what it looked like everywhere at once.
-fn slab(map: &crate::schema::Map, slot: Slot, lip: f32) -> (Vec2, Vec2) {
+fn slab(map: &Map, slot: Slot, lip: f32) -> (Vec2, Vec2) {
     let minimum = (slot.column * map.floor_width, slot.row * map.floor_height);
     let maximum = (
         minimum.0 + map.floor_width - 1,
         minimum.1 + map.floor_height - 1,
     );
     let against = |column: i32, row: i32| {
-        crate::schema::map_floor_index(
+        map_floor_index(
             map,
             Slot {
                 column: slot.column + column,
@@ -142,16 +143,24 @@ fn slab(map: &crate::schema::Map, slot: Slot, lip: f32) -> (Vec2, Vec2) {
         )
         .is_some()
     };
+    // A side gives up its lip to the floor beside it, and to the one across the
+    // corner as well: two floors meeting only at a corner would otherwise still
+    // lay a lip square of one over a lip square of the other, which is the same
+    // fight over a smaller patch.
+    let west = against(-1, 0) || against(-1, -1) || against(-1, 1);
+    let east = against(1, 0) || against(1, -1) || against(1, 1);
+    let north = against(0, -1) || against(-1, -1) || against(1, -1);
+    let south = against(0, 1) || against(-1, 1) || against(1, 1);
     let out = |neighbour: bool| if neighbour { 0.0 } else { lip };
     // A square is a unit wide centred on its cell, so a floor's own edge is
     // half a unit past the outermost one.
     let low = Vec2::new(
-        minimum.0 as f32 - 0.5 - out(against(-1, 0)),
-        minimum.1 as f32 - 0.5 - out(against(0, -1)),
+        minimum.0 as f32 - 0.5 - out(west),
+        minimum.1 as f32 - 0.5 - out(north),
     );
     let high = Vec2::new(
-        maximum.0 as f32 + 0.5 + out(against(1, 0)),
-        maximum.1 as f32 + 0.5 + out(against(0, 1)),
+        maximum.0 as f32 + 0.5 + out(east),
+        maximum.1 as f32 + 0.5 + out(south),
     );
     ((low + high) * 0.5, high - low)
 }

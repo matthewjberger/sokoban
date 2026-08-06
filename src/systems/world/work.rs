@@ -32,10 +32,6 @@ fn slice(game: &SokobanResources) -> usize {
 /// one that says it does not know.
 const BUDGET: usize = DEFAULT_STATE_BUDGET;
 
-/// How often a search says how far it has got. Often enough to read as work
-/// happening, and rarely enough that the line is not rebuilt every frame.
-const SAY_EVERY: f32 = 0.2;
-
 /// A search in progress, and what is waiting on it.
 pub enum Work {
     /// A board being generated, and what it is for. The run is the largest
@@ -137,19 +133,15 @@ fn advance_making(
     making: Making,
 ) {
     match run.advance(slice(game)) {
-        Outcome::Working => {
-            if game.elapsed - game.work_said_at >= SAY_EVERY {
-                game.work_said_at = game.elapsed;
-                let progress = format!(
-                    "rolling   ·   {} boards tried across {} shapes",
-                    run.attempted(),
-                    run.rolled().max(1)
-                );
-                game.random_status = progress.clone();
-                game.notice = progress;
-            }
-            game.work = Some(Work::Making(run, making));
-        }
+        // Nothing is said per frame, and what is said does not count anything.
+        // A line carrying a running tally is a line that changes several times a
+        // second, and any text that changes lays the whole of the retained tree
+        // out again and throws its wrap cache away. Under a button that is being
+        // hovered, that reads as one flashing at whoever pressed it, which is
+        // exactly what it looked like. The board arriving is the feedback; a
+        // count of the boards that did not is not worth a layout, let alone five
+        // a second.
+        Outcome::Working => game.work = Some(Work::Making(run, making)),
         Outcome::Ready(map) => hand_over(game, world, *map, making),
         // A rolling run reaches for another shape rather than stopping, so
         // getting here at all means it spent everything it had on every shape it

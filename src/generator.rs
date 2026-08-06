@@ -11,9 +11,9 @@ use rand::SeedableRng;
 use rand::rngs::StdRng;
 use serde::{Deserialize, Serialize};
 
-/// Every dial the generator exposes. It is plain serializable data, so a
-/// preset can be saved beside a map, tuned in the menu, or handed to a batch
-/// run without any of them knowing about each other.
+/// Everything the generator is told about a board before it lays one out. It is
+/// plain serializable data, so a recipe can be saved beside a map, rolled, or
+/// handed to a batch run without any of them knowing about each other.
 #[derive(Serialize, Deserialize, Clone, Copy, PartialEq, Debug)]
 #[serde(default)]
 pub struct Recipe {
@@ -114,9 +114,10 @@ impl Default for Recipe {
     }
 }
 
-/// One setting of the hazard dial: what to call it and how much of each thing
-/// to scatter. Keeping the dial as a table rather than a chain of branches
-/// means teaching it a new mechanic is a line rather than a rewrite.
+/// One mechanic's worth of scatter: what to call it and how much of each thing
+/// to lay down. Keeping these as a table rather than a chain of branches means
+/// teaching the generator a new mechanic is a line rather than a rewrite, and
+/// the roll draws from the same table without knowing what is in it.
 pub struct HazardStage {
     pub name: &'static str,
     pub ice_patches: usize,
@@ -317,13 +318,13 @@ pub fn apply_hazards(recipe: &mut Recipe, index: usize) {
     recipe.party = stage.party.max(1);
 }
 
-/// How many starting points there are. The menu cycles through them, so it asks
-/// here rather than carrying its own count that could fall behind.
+/// How many starting points there are, asked for here rather than counted again
+/// somewhere that could fall behind.
 pub const PRESET_COUNT: usize = 5;
 
-/// One notch of the complexity dial. Everything that makes a board harder moves
-/// together, so one control covers what would otherwise be four that have to be
-/// kept in step by hand.
+/// One notch of complexity. Everything that makes a board harder moves together,
+/// so one number covers what would otherwise be four that have to be kept in
+/// step by hand.
 pub struct ComplexityStep {
     pub crates: usize,
     pub wall_fraction: f32,
@@ -370,10 +371,9 @@ pub const COMPLEXITY: [ComplexityStep; 5] = [
     },
 ];
 
-/// Sets everything one notch of the dial decides. The crate count has a dial of
-/// its own, so the notch is a floor under it rather than a replacement for it:
-/// asking for more crates than the notch wants is allowed, asking for fewer
-/// than it needs is not.
+/// Sets everything one notch decides. The crate count is set separately, so the
+/// notch is a floor under it rather than a replacement for it: more crates than
+/// the notch wants is allowed, fewer than it needs is not.
 pub fn apply_complexity(recipe: &mut Recipe, notch: u8) {
     let index = (notch.max(1) as usize - 1).min(COMPLEXITY.len() - 1);
     let step = &COMPLEXITY[index];
@@ -482,8 +482,13 @@ pub fn roll(rng: &mut impl Rng, demand: Demand) -> Recipe {
     apply_hazards(&mut recipe, 0);
     apply_complexity(&mut recipe, rng.random_range(1..=4));
 
+    // How many is drawn once. Drawing it again on every pass would compare the
+    // count so far against a fresh number each time, which stops at one mechanic
+    // far more often than at three and makes a board wearing several the
+    // exception rather than a third of the time.
+    let wanted = rng.random_range(1..=MOST_ROLLED_STAGES);
     let mut taken: Vec<usize> = Vec::new();
-    while taken.len() < rng.random_range(1..=MOST_ROLLED_STAGES) {
+    while taken.len() < wanted {
         let index = rng.random_range(1..HAZARD_STAGES.len());
         if !taken.contains(&index) {
             taken.push(index);
@@ -508,8 +513,8 @@ pub fn roll(rng: &mut impl Rng, demand: Demand) -> Recipe {
     recipe
 }
 
-/// The named starting points the menu cycles through. Each one is only a
-/// [`Recipe`], so the dials stay editable from there.
+/// The named starting points the batch checks work from. Each one is only a
+/// [`Recipe`], so a check can adjust one before asking for a board.
 pub fn preset(index: usize) -> Recipe {
     // A preset that names a setting of the hazard dial gets that setting and
     // nothing else. Leaving the fields to the default would quietly stir the
@@ -601,21 +606,41 @@ const RUN_POSITIONS: usize = 40_000_000;
 /// looking.
 const LEAST_ATTEMPTS: usize = 20;
 
-/// What one rolled shape of the size the budgets are written for is given
-/// before another is rolled in its place. A generator that grinds at a shape it
-/// cannot fill is the whole of what makes one unusable, and the cheapest answer
-/// is not a longer wait but a different board.
+/// The least any rolled shape is given before another is rolled in its place. A
+/// generator that grinds at a shape it cannot fill is the whole of what makes
+/// one unusable, and the cheapest answer is not a longer wait but a different
+/// board.
 const PATIENCE: usize = 200_000;
 
-/// The same for the shape actually in hand. A large floor honestly costs more
+/// How many shapes a run is guaranteed a real try at, which is what bounds how
+/// long any one of them may be given.
+const LEAST_ROLLS: usize = 12;
+
+/// How many shapes a run will get through before it gives up. The wall a fixed
+/// recipe answers to is a count of positions, and positions are only spent by
+/// searching: a shape whose layouts are all rejected before a search begins
+/// spends none, so without this a run that could not lay out anything at all
+/// would roll for ever saying it was working.
+const MOST_ROLLS: usize = 200;
+
+/// How many candidates a rolled shape is worth proving before another shape is
+/// worth more. Fewer than this and a large floor is thrown out on the strength
+/// of one unlucky layout, which is the same as never offering large floors.
+const CANDIDATES_PER_ROLL: usize = 6;
+
+/// What the shape actually in hand is given. A large floor honestly costs more
 /// to prove, so holding every shape to one flat figure throws the large ones
-/// away before they have been looked at, and what the generator hands out is
-/// small boards and nothing else however wide the roll.
+/// away before they have been looked at and the generator hands out small
+/// boards and nothing else however wide the roll.
+///
+/// It is a number of candidates rather than a flat count of positions, because
+/// what a shape needs is several honest tries and what one try costs is already
+/// worked out. Held under a share of the whole run either way: a leash long
+/// enough to swallow the run is not a leash.
 fn patience_for(recipe: &Recipe) -> usize {
-    let floors = (recipe.layers.max(1) + recipe.wings.max(0)) as usize;
-    let area = (recipe.floor_width.clamp(MIN_EXTENT, MAX_EXTENT)
-        * recipe.floor_height.clamp(MIN_EXTENT, MAX_EXTENT)) as usize;
-    PATIENCE.saturating_mul((floors * area / BASE_AREA).max(1))
+    budget_for(recipe)
+        .saturating_mul(CANDIDATES_PER_ROLL)
+        .clamp(PATIENCE, RUN_POSITIONS / LEAST_ROLLS)
 }
 
 /// How many layouts one rolled shape is worth trying. The dials a recipe
@@ -685,7 +710,6 @@ pub struct Run {
     /// What one candidate of this shape is allowed to walk.
     budget: usize,
     attempts_left: usize,
-    attempted: usize,
     rolled: usize,
     /// Positions walked across the whole run, which is what a run is really
     /// spending and the only bound that holds for every shape of board.
@@ -714,7 +738,6 @@ impl Run {
             recipe,
             rng,
             demand: None,
-            attempted: 0,
             rolled: 0,
             spent: 0,
             since_roll: 0,
@@ -757,19 +780,6 @@ impl Run {
         self.candidate = None;
     }
 
-    /// How many boards have been laid out so far, and how far the search has got
-    /// through the one it is on. Both are for the screen that has to say
-    /// something while it waits.
-    pub fn attempted(&self) -> usize {
-        self.attempted
-    }
-
-    /// How many shapes have been tried, which is the other half of what a screen
-    /// waiting on a board has to say.
-    pub fn rolled(&self) -> usize {
-        self.rolled
-    }
-
     /// Spends about this many positions worth of work and says where that left
     /// it.
     pub fn advance(&mut self, slice: usize) -> Outcome {
@@ -785,13 +795,12 @@ impl Run {
                 // another costs nothing and is the whole of why waiting on this
                 // ends.
                 if self.attempts_left == 0 || self.since_roll > self.patience {
-                    let Some(demand) = self.demand else {
+                    let Some(demand) = self.demand.filter(|_| self.rolled < MOST_ROLLS) else {
                         return Outcome::Barren;
                     };
                     self.reroll(demand);
                 }
                 self.attempts_left -= 1;
-                self.attempted += 1;
                 let recipe = self.recipe;
                 let Some(map) = lay_out(&recipe, &mut self.rng) else {
                     continue;
