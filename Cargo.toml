@@ -1,0 +1,54 @@
+[package]
+name = "sokoban"
+description = "Crate pushing puzzle game with ice, pits, gates, elevators, and multi floor maps"
+version = "0.1.0"
+license = "MIT OR Apache-2.0"
+edition = "2024"
+
+[[bin]]
+name = "sokoban"
+path = "src/main.rs"
+
+[dependencies]
+# Pinned to the engine revision rather than the 0.57.0 release, because the
+# gamepad fixes this game reads pads and menus through landed after that release
+# was cut. Move both back to a plain version once one ships with them.
+#
+# The selection outline the party highlight is drawn with lives behind
+# debug_render, so without it the outline is set and never drawn.
+nightshade = { git = "https://github.com/matthewjberger/nightshade", rev = "929e53398aee1f210138edaf8a789e142594302a", features = [
+    "tracing",
+    "gamepad",
+    "debug_render",
+] }
+nightshade-ecs = { git = "https://github.com/matthewjberger/nightshade", rev = "929e53398aee1f210138edaf8a789e142594302a", features = [
+    "dynamic",
+    "snapshot",
+    "state",
+] }
+clap = { version = "4", features = ["derive"] }
+nalgebra-glm = { version = "0.20.0", features = ["convert-bytemuck"] }
+petgraph = { version = "0.8", features = ["serde-1"] }
+serde = { version = "1.0.228", features = ["derive"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+js-sys = "0.3"
+wasm-bindgen = "0.2.114"
+web-sys = { version = "0.3", features = [
+    "Blob",
+    "Clipboard",
+    "Document",
+    "Element",
+    "HtmlAnchorElement",
+    "HtmlElement",
+    "Navigator",
+    "Url",
+    "Window",
+] }
+
+[profile.wasm-release]
+inherits = "release"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = "symbols"

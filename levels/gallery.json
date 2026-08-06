@@ -1,0 +1,8591 @@
+[
+  {
+    "topic": "Character",
+    "name": "THE PUSHER",
+    "blurb": "The blue one is who you are unless a board says otherwise. Walk into a crate to push it, and never pull, so where you stand decides which way a crate can go.",
+    "practice": "Push the crate onto the marker, then try to get it back off. You cannot.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 9,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            6,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE SWAPPER",
+    "blurb": "The violet one touches nothing. Moving trades places with the first crate down that line however far off it is, which is the only way anything here moves a crate towards itself.",
+    "practice": "Trade with the crate across the room. Nothing in between is touched.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Swapper",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE WADER",
+    "blurb": "Water carries this one. What stops everything else on the board is a road, and a crate pushed in is still lost.",
+    "practice": "Walk out across the water, which nothing else in this gallery can do.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Water",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Glacier",
+      "character": "Wader",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "A PARTY",
+    "blurb": "A board can have more than one of you on it. Only one takes the controls at a time, and pointing them at somebody else costs a move like anything else.",
+    "practice": "The marker in the corner can only be shoved into, and the crate in the other corner can only be dragged out. Take each of them in turn.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            2
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            11,
+            4
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            11,
+            2
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            4
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Glacier",
+      "character": "Wader",
+      "followers": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              9,
+              5
+            ]
+          },
+          "character": "Magnet"
+        }
+      ]
+    },
+    "demo": [
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Take": 1
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Left"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE PHASER",
+    "blurb": "A single wall is one step rather than a stop, so long as there is floor to arrive on. Two walls thick is still a wall.",
+    "practice": "Step through the thin wall. Then try the thick one.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 12,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            6,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Phaser",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE WARDEN",
+    "blurb": "Light does not harm this one. A beam that ends every other run is scenery, and the squares behind it are simply squares.",
+    "practice": "Walk straight through the beam.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Emitter": "Down"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Warden",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "ICE",
+    "blurb": "Anything that steps onto ice keeps going the way it was going until something stops it.",
+    "practice": "Push the crate east along the ice, then walk onto the ice yourself.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Glacier",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "PITS",
+    "blurb": "A crate pushed into a pit fills it and is spent. The filled pit is floor from then on, so a bridge costs a crate.",
+    "practice": "One crate fills the hole and the other crosses it. There is no way round.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 10,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Pit",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "PLATES AND GATES",
+    "blurb": "A gate is open while a plate of its group is held down, by a crate or by you. Standing on it yourself opens it, but then you are standing on it.",
+    "practice": "Step on the plate and watch the gate. Then park one crate on it and walk the other through.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            {
+              "Plate": 0
+            },
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            5
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "PORTALS",
+    "blurb": "Matching pads swap places. Crates travel too, which is how a crate reaches somewhere you could never push it.",
+    "practice": "Step onto the pad. There is no other way to the far side of the wall.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Portal",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Portal",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            11,
+            3
+          ]
+        }
+      ],
+      "portals": [
+        [
+          {
+            "layer": 0,
+            "cell": [
+              3,
+              2
+            ]
+          },
+          {
+            "layer": 0,
+            "cell": [
+              8,
+              5
+            ]
+          }
+        ]
+      ],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "ELEVATORS",
+    "blurb": "Shafts join storeys. Stand on one and a prompt appears over your head: Q rides up, E rides down.",
+    "practice": "Ride up, look around the upper storey, and ride back down.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 9,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        },
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 1
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 1,
+          "cell": [
+            6,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 1,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Ride": 1
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Up"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "CRATES IN SHAFTS",
+    "blurb": "A crate pushed into a shaft rides it, down when there is a storey below and up when there is not.",
+    "practice": "Push the crate into the shaft, then take the other shaft down to meet it.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 9,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        },
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 1
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Elevator",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 1,
+        "cell": [
+          4,
+          2
+        ]
+      },
+      "crates": [
+        {
+          "layer": 1,
+          "cell": [
+            5,
+            2
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            6,
+            4
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Ride": -1
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "ONE WAY",
+    "blurb": "An arrow square takes traffic one way only. It costs nothing to go with it and there is no going back against it.",
+    "practice": "Push the crate along the arrows, then try to walk back through one.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "OneWay": "Right"
+            },
+            {
+              "OneWay": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "BELTS",
+    "blurb": "A belt carries whatever lands on it its own way, not the way that thing was going, so it can turn a crate off the line you pushed it down.",
+    "practice": "Push the crate onto the belt and watch it turn, then step on yourself.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Conveyor": "Down"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Conveyor": "Down"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "FRAGILE FLOOR",
+    "blurb": "Pale floor holds once. Step off it, or slide over it, and it drops away behind you, so a route through it is a route you only have while you are on it.",
+    "practice": "Walk east over the two pale squares, then try to walk back.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Fragile",
+            "Fragile",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            6,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "SWITCHES",
+    "blurb": "A switch throws its gate and leaves it thrown. A plate has to be held down by something; a switch remembers, so you can walk away and take the crate with you.",
+    "practice": "Throw the switch, walk back, and take the crate through the gate it opened.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            {
+              "Switch": 0
+            },
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "BRITTLE WALLS",
+    "blurb": "A cracked wall gives way to a crate, which is spent breaking it. That is a second use for a spare, and the only way through some walls.",
+    "practice": "Spend the near crate on the wall, then walk round for the other one.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Brittle",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "WATER",
+    "blurb": "Water takes a crate and keeps it. Unlike a pit it is no shallower afterwards, so a crate spent here buys nothing at all.",
+    "practice": "Lose the first crate in the water, then walk the long way round with the other.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Glacier",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE DRAGGER",
+    "blurb": "The green one drags and cannot shove at all. Hold SHIFT and step away from a crate and it comes with you, so it reaches the corners a shover never can and loses the shove entirely.",
+    "practice": "Hold SHIFT and step away from the crate to drag it out. Walking into it does nothing.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            1,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Dragger",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Drag": "Right"
+      },
+      {
+        "Drag": "Right"
+      },
+      {
+        "Drag": "Right"
+      },
+      {
+        "Drag": "Right"
+      },
+      {
+        "Drag": "Right"
+      },
+      {
+        "Drag": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE MAGNET",
+    "blurb": "The red one drags whatever it steps away from, asked or not, and cannot shove either. Every move is a decision about what is behind as well as what is ahead.",
+    "practice": "Walk about and watch the crate follow. Getting free of one takes planning.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Magnet",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE BLINKER",
+    "blurb": "The yellow one treats a gap as a road. Walk into open air and it carries you over to the first ground on the far side, which is the only way anything gets between two islands. Crates stay where they are: nothing but the blinker crosses.",
+    "practice": "Walk into the empty air. You land on the next ground along.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Void",
+            "Void",
+            "Void",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Void",
+            "Void",
+            "Void",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Void",
+            "Void",
+            "Void",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Void",
+            "Void",
+            "Void",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Void",
+            "Void",
+            "Void",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Drift",
+      "character": "Blinker",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "PAIRS",
+    "blurb": "Where the rule allows it one shove moves two crates in a line, so a pair that would jam each other travels together instead.",
+    "practice": "Push both crates the whole way with one line of shoves.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": true,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Warehouse",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "BEAMS",
+    "blurb": "An emitter throws a beam and never stops. Walk into one and it takes you, and the move you died on comes straight back.",
+    "practice": "The tower is drinking the beam and the door is open while it does. Then step into the beam and watch the board rewind.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Emitter": "Down"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Receiver": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "MIRRORS",
+    "blurb": "A mirror turns a beam a quarter turn and is otherwise a thing standing on its square. Light that would have run into a wall goes round the corner instead.",
+    "practice": "Seat the gem and follow what it throws. The mirror is what puts it on the tower, and the tower is what opens the door.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            {
+              "Mirror": "Forward"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Receiver": 0
+            },
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            {
+              "Socket": "Up"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          1,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              4,
+              5
+            ]
+          },
+          "color": "Ruby"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": false,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      "Handle",
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      "Handle",
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "ORBS AND TOWERS",
+    "blurb": "A tower drinks a beam and powers its gate for as long as one reaches it. An orb is a crate that stops light, so parking one in the way puts the gate back down.",
+    "practice": "An orb shoves like a crate and stops light like one. Take it through the door the tower is holding.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Emitter": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Receiver": 0
+            },
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          4
+        ]
+      },
+      "crates": [],
+      "orbs": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            4
+          ]
+        }
+      ],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            4
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "LAMPS",
+    "blurb": "A lamp is shoved about like anything else and throws light a few squares in every direction. A sensor holds its gate for as long as a lamp is reaching it.",
+    "practice": "Push the lamp one square nearer and watch the sensor open its eye.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Sensor": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          1,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "SHADOWS",
+    "blurb": "Light stops at what stops it. A crate between the lamp and the sensor puts the sensor in shadow, and where the shadow falls is worked out rather than looked at.",
+    "practice": "Push the crate into the column of light and watch the sensor go dark.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 9,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Sensor": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          4
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            4
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            6
+          ]
+        }
+      ],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            6
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "MOMENTUM",
+    "blurb": "Speed survives a portal. Come out of a pad with ice straight ahead and the slide picks up again, which throws a crate somewhere no push could reach.",
+    "practice": "Push the crate into the pad with one move, then step in after it and ride.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Portal",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Ice",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Portal",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          3,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            1
+          ]
+        }
+      ],
+      "portals": [
+        [
+          {
+            "layer": 0,
+            "cell": [
+              3,
+              1
+            ]
+          },
+          {
+            "layer": 0,
+            "cell": [
+              5,
+              3
+            ]
+          }
+        ]
+      ],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Glacier",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "GEMS AND SOCKETS",
+    "blurb": "A gem is carried rather than shoved. Stand on one and press SPACE to lift it, carry it to a socket, and press SPACE again to seat it. A seated gem throws light of its own colour the way the plinth is pointing.",
+    "practice": "Lift the gem, shove the crate out of the gap, and seat the gem in the plinth.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            {
+              "Socket": "Right"
+            },
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              3,
+              3
+            ]
+          },
+          "color": "Ruby"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": false,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "SocketsFilled"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      "Handle",
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      "Handle"
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "LIGHT THAT LENDS",
+    "blurb": "Standing in coloured light lends you what the colour is for, for exactly as long as you stand in it. Ruby is a wall you may step through.",
+    "practice": "Seat the gem, stand in what it throws, and walk into the wall. Step out of the light first and the wall is a wall.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Socket": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          5,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              3,
+              5
+            ]
+          },
+          "color": "Ruby"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            11,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      "Handle",
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      "Handle",
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "AMBER AND BOULDERS",
+    "blurb": "A boulder is the one thing on the board that no shove moves. Amber light lends the hands for it, so a boulder is a wall until you are standing in the right colour.",
+    "practice": "Seat the gem and walk into the boulder from inside the amber light. Then try it from outside.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Socket": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            3
+          ]
+        }
+      ],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              3,
+              5
+            ]
+          },
+          "color": "Amber"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            10,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      "Handle",
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      "Handle",
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Character",
+    "name": "THE BREAKER",
+    "blurb": "The Breaker shoves like anybody and breaks a boulder bare handed, so the one obstacle nothing else answers is the one this class walks through.",
+    "practice": "Walk into the boulder. Then push the crate onto the marker.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            6,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Breaker",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "GLASS",
+    "blurb": "A pane stops a body and lets light straight through, which is the one wall on the board a beam does not care about.",
+    "practice": "The wall stops you and the pane in it does not stop the beam, so the tower on the far side is lit and the door is open.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Emitter": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Glass",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Receiver": 0
+            },
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "LENSES",
+    "blurb": "A lens stains whatever light crosses it. A beam that kills goes in and a beam that lends comes out, so a board with a lens on it can make a colour it owns no gem of.",
+    "practice": "Walk into the green light and keep going. Jade is water you may walk on, for as long as the light reaches you.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 13,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Emitter": "Right"
+            },
+            "Floor",
+            {
+              "Prism": "Jade"
+            },
+            "Floor",
+            "Water",
+            "Water",
+            "Water",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          4,
+          4
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            4
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            11,
+            4
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "SPLITTERS",
+    "blurb": "A wedge cuts a beam in two and throws the halves out either side of the line it came in on, so one stone lights two towers and opens two doors at once.",
+    "practice": "Seat the gem. Both towers take a half of the beam, and the crate's road has a door held by each.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 1
+            },
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Receiver": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Splitter",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Receiver": 1
+            },
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Socket": "Up"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          1,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            1
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              2,
+              5
+            ]
+          },
+          "color": "Ruby"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            1
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      "Handle",
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      "Handle",
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "SPIKES",
+    "blurb": "A bed of spikes is a door that only bars bodies. It stands up while its group is powered and lies flat when it is not, and a crate crosses it either way.",
+    "practice": "The spikes are up while the plate is held. Take the crate off it, cross, and deliver the other one.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Plate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Spike": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          4,
+          1
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            1
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": false,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "THE BURNER",
+    "blurb": "A burner is a fire under two steel leaves. They hold under you and give under a crate, so what is pushed onto one is gone for good. Unlike a hole it never fills, and unlike water it is ground to walk on.",
+    "practice": "Every crate has to end on a marker and there is only one marker, so one of them goes in the fire.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Incinerator",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            3,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "CratesOnGoals"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "WATCHERS",
+    "blurb": "A watcher kills whatever is beside it, which is the four squares around it and not the corners. It never moves on its own, and the only way to move one is to trade places with it from far enough off to still be alive when you arrive.",
+    "practice": "Trade with the watcher across the corridor, then take the crate to the marker.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [
+        {
+          "layer": 0,
+          "cell": [
+            5,
+            3
+          ]
+        }
+      ],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Swapper",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Left"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "SHUTTERS",
+    "blurb": "A shutter is a gate read backwards: shut while its group is powered and open while it is not. One plate can hold a door open and a shutter closed at the same time, so opening the way on is closing the way back.",
+    "practice": "Go in by the shutter while it is open. Putting the crate on the plate opens the gate and shuts the shutter behind you.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            {
+              "Plate": 0
+            },
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Shutter": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          5
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            1
+          ]
+        },
+        {
+          "layer": 0,
+          "cell": [
+            2,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "LOCKS",
+    "blurb": "A lock answers to what is in your hands rather than to anything on the board. It stands open for as long as somebody is carrying a gem of its colour, and shuts again the moment the gem is put down.",
+    "practice": "Lift the gem and take the crate through the lock. Then put the gem down and try again.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Lock": "Ruby"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          2,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            4,
+            3
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [
+        {
+          "at": {
+            "layer": 0,
+            "cell": [
+              2,
+              5
+            ]
+          },
+          "color": "Ruby"
+        }
+      ],
+      "mirrors": [],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            8,
+            3
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": false,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      "Handle",
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Up"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  },
+  {
+    "topic": "Mechanic",
+    "name": "MIRRORS ON PALLETS",
+    "blurb": "A mirror on a pallet turns a beam the way one set into the floor does and shoves the way a crate does, so where the light ends up is something you push around the room.",
+    "practice": "Shove the pallet along the beam until the light turns onto the tower. Push it from the dark side: the mirror is what is keeping you out of the beam.",
+    "map": {
+      "name": "",
+      "hint": "",
+      "par": 0,
+      "floor_width": 11,
+      "floor_height": 7,
+      "floors": [
+        {
+          "slot": {
+            "column": 0,
+            "row": 0,
+            "layer": 0
+          },
+          "tiles": [
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Floor",
+            {
+              "Receiver": 0
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            {
+              "Emitter": "Right"
+            },
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Wall",
+            "Floor",
+            "Wall",
+            "Wall",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            "Floor",
+            {
+              "Gate": 0
+            },
+            "Floor",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall",
+            "Wall"
+          ],
+          "skin": null
+        }
+      ],
+      "player": {
+        "layer": 0,
+        "cell": [
+          6,
+          3
+        ]
+      },
+      "crates": [
+        {
+          "layer": 0,
+          "cell": [
+            7,
+            5
+          ]
+        }
+      ],
+      "orbs": [],
+      "lamps": [],
+      "stones": [],
+      "gems": [],
+      "mirrors": [
+        [
+          {
+            "layer": 0,
+            "cell": [
+              5,
+              3
+            ]
+          },
+          "Forward"
+        ]
+      ],
+      "watchers": [],
+      "goals": [
+        {
+          "layer": 0,
+          "cell": [
+            9,
+            5
+          ]
+        }
+      ],
+      "portals": [],
+      "emitters": [],
+      "sockets": [],
+      "spikes": [],
+      "prisms": [],
+      "rules": {
+        "ice_slides_player": true,
+        "ice_slides_crates": true,
+        "pits_swallow_crates": true,
+        "filled_pits_are_floor": true,
+        "portals_carry_player": true,
+        "portals_carry_crates": true,
+        "portal_exit_continues_on_ice": true,
+        "plates_sense_player": true,
+        "plates_sense_crates": true,
+        "elevators_move_player": true,
+        "elevators_move_crates": true,
+        "one_way_stops_player": true,
+        "one_way_stops_crates": true,
+        "conveyors_carry_player": true,
+        "conveyors_carry_crates": true,
+        "fragile_floor_collapses": true,
+        "switches_toggle_gates": true,
+        "crates_break_brittle": true,
+        "crates_sink_in_water": true,
+        "light_range": 4,
+        "blink_reach": 4,
+        "crates_push_in_pairs": false,
+        "gem_light_grants_powers": true,
+        "stones_break_bare_handed": true,
+        "spikes_impale": true,
+        "incinerators_burn_crates": true,
+        "win": "GoalsCovered"
+      },
+      "skin": "Vault",
+      "character": "Pusher",
+      "followers": []
+    },
+    "demo": [
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Left"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Down"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      },
+      {
+        "Go": "Right"
+      }
+    ]
+  }
+]
