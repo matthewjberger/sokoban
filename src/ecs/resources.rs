@@ -542,6 +542,9 @@ pub struct SokobanResources {
     /// The last of those actually written to the screen, so a line that has not
     /// changed is not laid out again on the strength of being read again.
     pub random_status_shown: String,
+    /// The same, for the running commentary the completion screen shows while
+    /// the board after this one is being made.
+    pub notice_shown: String,
     /// When the running commentary on a search was last written. A search takes
     /// a slice of every frame, and a line that says how far it has got is a
     /// line that would otherwise be re-laid out sixty times a second.

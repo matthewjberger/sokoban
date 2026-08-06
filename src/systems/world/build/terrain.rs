@@ -78,47 +78,82 @@ fn build_water_runs(game: &mut SokobanResources, palette: &Palette, world: &mut 
     }
 }
 
+/// How far a plinth stands out past the floor it carries, and how far the rim
+/// stands out past that.
+const PLINTH_LIP: f32 = 0.3;
+const RIM_LIP: f32 = 0.8;
+
 fn build_plinth(game: &mut SokobanResources, world: &mut World, slot: Slot) {
     let minimum = (
         slot.column * game.map.floor_width,
         slot.row * game.map.floor_height,
-    );
-    let maximum = (
-        minimum.0 + game.map.floor_width - 1,
-        minimum.1 + game.map.floor_height - 1,
     );
     let palette = &palette_for(map_floor_skin(
         &game.map,
         Position::new(slot.layer, minimum),
     ));
     let layer = slot.layer;
-    let width = (maximum.0 - minimum.0 + 1) as f32;
-    let depth = (maximum.1 - minimum.1 + 1) as f32;
-    let center = Vec3::new(
-        (minimum.0 + maximum.0) as f32 * 0.5,
-        layer_height(layer),
-        (minimum.1 + maximum.1) as f32 * 0.5,
-    );
 
+    let (center, extent) = slab(&game.map, slot, PLINTH_LIP);
     let plinth = block(
         world,
         "Cube",
-        Vec3::new(center.x, center.y - 0.8, center.z),
-        Vec3::new(width + 0.6, 0.6, depth + 0.6),
+        Vec3::new(center.x, layer_height(layer) - 0.8, center.y),
+        Vec3::new(extent.x, 0.6, extent.y),
         "sokoban_plinth",
         solid(palette.plinth, 0.85, 0.0),
     );
     track_entity(game, world, plinth, layer);
 
+    let (center, extent) = slab(&game.map, slot, RIM_LIP);
     let rim = block(
         world,
         "Cube",
-        Vec3::new(center.x, center.y - 1.2, center.z),
-        Vec3::new(width + 1.6, 0.3, depth + 1.6),
+        Vec3::new(center.x, layer_height(layer) - 1.2, center.y),
+        Vec3::new(extent.x, 0.3, extent.y),
         "sokoban_plinth_rim",
         solid(palette.plinth_rim, 0.9, 0.0),
     );
     track_entity(game, world, rim, layer);
+}
+
+/// Where a floor's plinth begins and ends, given how far it is meant to stand
+/// out past the squares it carries.
+///
+/// A side with a floor against it gets no lip at all. Two floors laid side by
+/// side each standing out over the seam are two slabs sharing a volume with
+/// their faces at one height, which is a whole board's worth of surfaces
+/// fighting for the same pixels. The depot is six floors in a lattice, so that
+/// is what it looked like everywhere at once.
+fn slab(map: &crate::schema::Map, slot: Slot, lip: f32) -> (Vec2, Vec2) {
+    let minimum = (slot.column * map.floor_width, slot.row * map.floor_height);
+    let maximum = (
+        minimum.0 + map.floor_width - 1,
+        minimum.1 + map.floor_height - 1,
+    );
+    let against = |column: i32, row: i32| {
+        crate::schema::map_floor_index(
+            map,
+            Slot {
+                column: slot.column + column,
+                row: slot.row + row,
+                layer: slot.layer,
+            },
+        )
+        .is_some()
+    };
+    let out = |neighbour: bool| if neighbour { 0.0 } else { lip };
+    // A square is a unit wide centred on its cell, so a floor's own edge is
+    // half a unit past the outermost one.
+    let low = Vec2::new(
+        minimum.0 as f32 - 0.5 - out(against(-1, 0)),
+        minimum.1 as f32 - 0.5 - out(against(0, -1)),
+    );
+    let high = Vec2::new(
+        maximum.0 as f32 + 0.5 + out(against(1, 0)),
+        maximum.1 as f32 + 0.5 + out(against(0, 1)),
+    );
+    ((low + high) * 0.5, high - low)
 }
 
 fn build_square(game: &mut SokobanResources, palette: &Palette, world: &mut World, at: Position) {

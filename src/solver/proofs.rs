@@ -9,7 +9,10 @@
 use super::board::Board;
 use super::pushspace::estimate;
 use super::{BATCH, Progress, ROOT, Search, retrace, search_key};
-use crate::generator::{HAZARD_STAGES, PRESET_COUNT, Recipe, apply_hazards, generate, preset};
+use crate::generator::{
+    Demand, HAZARD_STAGES, PRESET_COUNT, Recipe, apply_hazards, generate_rolling_seeded,
+    generate_seeded, preset,
+};
 use crate::maps::{load_map, map_count};
 use crate::rules::{Step, expansions, initial_state, lethal, map_solved, play};
 use crate::schema::{Map, Tile, WinCondition, map_positions, map_tile};
@@ -105,16 +108,35 @@ fn either_way(map: &Map) -> Vec<Map> {
     vec![map.clone(), strict]
 }
 
-/// Small boards from every setting of both dials, which is what stops these
-/// checks being a reading of one rule set copied fifty-seven times.
+/// How many boards each source is asked for. Every one is a different seed, so
+/// this widens what the checks see without making any of it a matter of luck.
+const SEEDS: u64 = 2;
+
+/// Where the seeds start. Any number does; this one is fixed so that a board
+/// these checks failed on is a board they can be pointed at again.
+const FIRST_SEED: u64 = 0x50C0_BA11;
+
+/// Small boards from every setting of both dials, and from the roll the random
+/// button itself makes, which is what stops these checks being a reading of one
+/// rule set copied fifty-seven times.
+///
+/// Every one of them is seeded. A check that samples a different set of boards
+/// on every run is a check that passes until the morning it does not and cannot
+/// then be asked which board it was, so what is gained by rolling freshly is
+/// bought here with more seeds rather than with unrepeatable ones.
 fn generated() -> Vec<Map> {
     let mut boards = Vec::new();
+    let mut seed = FIRST_SEED;
+    let mut next = || {
+        seed += 1;
+        seed
+    };
     for index in 0..PRESET_COUNT {
         let recipe = Recipe {
             attempts: 300,
             ..preset(index)
         };
-        boards.extend(generate(&recipe));
+        boards.extend((0..SEEDS).filter_map(|_| generate_seeded(&recipe, next())));
     }
     for stage in 0..HAZARD_STAGES.len() {
         let mut recipe = Recipe {
@@ -124,8 +146,14 @@ fn generated() -> Vec<Map> {
             ..Default::default()
         };
         apply_hazards(&mut recipe, stage);
-        boards.extend(generate(&recipe));
+        boards.extend((0..SEEDS).filter_map(|_| generate_seeded(&recipe, next())));
     }
+    // What the random button hands out is a board nothing above describes: its
+    // shape, its party and its mechanics are drawn together rather than set,
+    // and a board the game gives people has to answer to these checks like any
+    // other.
+    boards
+        .extend((0..SEEDS * 4).filter_map(|_| generate_rolling_seeded(Demand::default(), next())));
     boards
 }
 

@@ -36,6 +36,11 @@ struct Arguments {
     check: Option<Check>,
 }
 
+/// Where the generator checks below start counting seeds from. Any number does;
+/// this one is fixed so that a board a check failed on is a board it can be
+/// pointed at again.
+const FIRST_SEED: u64 = 0x50C0_BA11;
+
 #[derive(Subcommand)]
 enum Check {
     /// Runs the static pass and the exhaustive search over every shipped board.
@@ -656,11 +661,21 @@ fn analyze_campaign(budget: usize) {
 /// Generates maps from every preset and reports what came back. The generator
 /// only returns boards the solver has already finished, so this is a check on
 /// how often it finds one and how hard the result is.
+///
+/// Every board here is asked for by seed. A reading that comes out differently
+/// every time it is taken is a reading nobody can act on, and one that says a
+/// setting produced nothing is only worth having if the board it failed to
+/// produce can be asked for again.
 fn analyze_generator(count: usize) {
+    let mut seed = FIRST_SEED;
+    let mut next = || {
+        seed += 1;
+        seed
+    };
     for index in 0..PRESET_COUNT {
         let recipe: Recipe = preset(index);
         for attempt in 0..count {
-            match generator::generate(&recipe) {
+            match generator::generate_seeded(&recipe, next()) {
                 Some(map) => println!(
                     "preset {index} run {attempt}: {} floors  crates {} goals {}  par {}",
                     map.floors.len(),
@@ -683,7 +698,7 @@ fn analyze_generator(count: usize) {
         };
         generator::apply_hazards(&mut recipe, index);
         let found = (0..count)
-            .filter(|_| generator::generate(&recipe).is_some())
+            .filter(|_| generator::generate_seeded(&recipe, next()).is_some())
             .count();
         println!("hazards {:<14} {found} of {count} runs solved", stage.name);
     }
@@ -714,7 +729,7 @@ fn analyze_generator(count: usize) {
         };
         generator::apply_complexity(&mut recipe, notch);
         let found = (0..count)
-            .filter(|_| generator::generate(&recipe).is_some())
+            .filter(|_| generator::generate_seeded(&recipe, next()).is_some())
             .count();
         println!(
             "shape  storeys {layers} wings {wings} floor {width}x{height} notch {notch}   {found} of {count} runs solved"
@@ -727,7 +742,8 @@ fn analyze_generator(count: usize) {
     let rolls = count.max(8);
     let mut found = 0;
     for _ in 0..rolls {
-        let Some(map) = generator::generate_rolling(generator::Demand::default()) else {
+        let Some(map) = generator::generate_rolling_seeded(generator::Demand::default(), next())
+        else {
             continue;
         };
         found += 1;
@@ -758,7 +774,10 @@ fn check_run(boards: usize) {
 
     let mut reached = 0;
     for cleared in 0..boards {
-        let Some(map) = generator::generate_rolling(generator::demand(cleared, reached)) else {
+        let seed = FIRST_SEED + 1000 + cleared as u64;
+        let Some(map) =
+            generator::generate_rolling_seeded(generator::demand(cleared, reached), seed)
+        else {
             println!("run board {}: nothing came out of the roll", cleared + 1);
             break;
         };

@@ -16,6 +16,12 @@ const PLAYING: &str =
     "WASD / D-PAD MOVE   ·   Q E RIDE   ·   Z UNDO   ·   R RESTART   ·   ESC PAUSE";
 /// The same line on a board with gems on it, where one more key matters.
 const CARRYING: &str = "WASD / D-PAD MOVE   ·   SPACE LIFT OR SEAT   ·   Q E RIDE   ·   Z UNDO   ·   R RESTART   ·   ESC PAUSE";
+/// The same for a body that drags on request. Whether the crate behind comes
+/// with you is the whole of the puzzle on those boards, and a modifier nobody
+/// is told about is a mechanic nobody finds: it reads as a board where dragging
+/// is simply broken.
+const DRAGGING: &str =
+    "WASD / D-PAD MOVE   ·   HOLD SHIFT OR A TO DRAG   ·   Z UNDO   ·   R RESTART   ·   ESC PAUSE";
 const WATCHING: &str =
     "WASD / D-PAD TAKE OVER   ·   SPEED OR BACK CHANGES THE PACE   ·   ESC PAUSE";
 
@@ -254,13 +260,18 @@ pub fn update(game: Res<SokobanResources>, world: &mut World) {
     let running = matches!(game.origin, MapOrigin::Endless) && in_state(world, Screen::InGame);
     ui_set_visible(world, handles.speed_button, running);
     ui_set_text(world, handles.speed_label, game.run_speed.label());
+    // A body that drags only when asked is asked with a key nothing else on the
+    // board needs, so the line says so wherever one is being played.
+    let powers = crate::rules::active_character(&game.map, &game.state).abilities();
+    let drags = powers.pull && !powers.magnetic;
     ui_set_text(
         world,
         handles.footer_label,
-        match (running, game.map.gems.is_empty()) {
-            (true, _) => WATCHING,
-            (false, true) => PLAYING,
-            (false, false) => CARRYING,
+        match (running, drags, game.map.gems.is_empty()) {
+            (true, _, _) => WATCHING,
+            (false, true, _) => DRAGGING,
+            (false, false, true) => PLAYING,
+            (false, false, false) => CARRYING,
         },
     );
 

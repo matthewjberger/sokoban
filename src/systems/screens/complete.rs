@@ -91,7 +91,10 @@ pub fn build_panel(tree: &mut UiTreeBuilder) -> CompleteHandles {
     }
 }
 
-pub fn populate(game: &SokobanResources, world: &mut World) {
+pub fn populate(game: &mut SokobanResources, world: &mut World) {
+    // The line below is about to be replaced, so what was last written to it is
+    // no longer what is on it.
+    game.notice_shown.clear();
     let handles = &game.ui.complete;
     ui_set_text(
         world,
@@ -116,8 +119,14 @@ pub fn handle_input(mut game: ResMut<SokobanResources>, world: &mut World) {
         // A random board is made after this screen asks for it rather than
         // before, so the screen says what is happening in the line that was
         // reporting the board just finished.
-        if work::making(game) {
-            ui_set_text(world, handles.stats_label, &game.notice);
+        //
+        // Only when it changes. Writing the line every frame lays the panel out
+        // every frame, and a button laid out again mid animation reads as one
+        // flashing at whoever just pressed it.
+        if work::making(game) && game.notice != game.notice_shown {
+            game.notice_shown = game.notice.clone();
+            let line = game.notice.clone();
+            ui_set_text(world, handles.stats_label, &line);
         }
         let mut advance = world.res::<Input>().keyboard.just_pressed(KeyCode::Enter)
             || world.res::<Input>().keyboard.just_pressed(KeyCode::Space);

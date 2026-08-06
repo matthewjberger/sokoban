@@ -7,6 +7,8 @@ use crate::schema::{
 use crate::shortcut::skipped;
 use crate::solver::{Progress, Search};
 use nightshade::prelude::{Rng, rand};
+use rand::SeedableRng;
+use rand::rngs::StdRng;
 use serde::{Deserialize, Serialize};
 
 /// Every dial the generator exposes. It is plain serializable data, so a
@@ -452,7 +454,8 @@ const MOST_ROLLED_STAGES: usize = 3;
 
 /// The shapes a rolled board is built on. Small enough to prove, and varied
 /// enough that two boards in a row rarely look alike.
-const ROLLED_SHAPES: [(i32, i32); 6] = [(7, 7), (8, 7), (9, 8), (10, 9), (12, 9), (14, 11)];
+const ROLLED_SHAPES: [(i32, i32); 7] =
+    [(7, 7), (8, 7), (9, 8), (10, 9), (12, 9), (14, 11), (16, 12)];
 
 /// A whole board asked for at random: its floor, its storeys, who is playing,
 /// how many of them there are, and whichever mechanics it happens to draw.
@@ -598,11 +601,22 @@ const RUN_POSITIONS: usize = 40_000_000;
 /// looking.
 const LEAST_ATTEMPTS: usize = 20;
 
-/// What one rolled shape is given before another is rolled in its place. A
-/// generator that grinds at a shape it cannot fill is the whole of what makes
-/// one unusable, and the cheapest answer is not a longer wait but a different
-/// board.
+/// What one rolled shape of the size the budgets are written for is given
+/// before another is rolled in its place. A generator that grinds at a shape it
+/// cannot fill is the whole of what makes one unusable, and the cheapest answer
+/// is not a longer wait but a different board.
 const PATIENCE: usize = 200_000;
+
+/// The same for the shape actually in hand. A large floor honestly costs more
+/// to prove, so holding every shape to one flat figure throws the large ones
+/// away before they have been looked at, and what the generator hands out is
+/// small boards and nothing else however wide the roll.
+fn patience_for(recipe: &Recipe) -> usize {
+    let floors = (recipe.layers.max(1) + recipe.wings.max(0)) as usize;
+    let area = (recipe.floor_width.clamp(MIN_EXTENT, MAX_EXTENT)
+        * recipe.floor_height.clamp(MIN_EXTENT, MAX_EXTENT)) as usize;
+    PATIENCE.saturating_mul((floors * area / BASE_AREA).max(1))
+}
 
 /// How many layouts one rolled shape is worth trying. The dials a recipe
 /// carries are written for somebody who asked for that recipe and will wait for
@@ -659,6 +673,11 @@ pub enum Outcome {
 /// solution can short circuit is thrown away with the unsolvable ones.
 pub struct Run {
     recipe: Recipe,
+    /// The one source of chance the whole run draws on, so a run started from a
+    /// seed lays out the same boards in the same order every time it is asked.
+    /// Reaching for the thread's generator instead would make every run a
+    /// different run, which is what a game wants and a check cannot use.
+    rng: StdRng,
     /// What to insist on, for a run that rolls its own shapes. A run handed a
     /// recipe to fill has nothing to insist on beyond that recipe, and stops
     /// when the recipe runs dry rather than reaching for another one.
@@ -674,16 +693,27 @@ pub struct Run {
     /// The same, since the shape in hand was rolled. A shape that has had this
     /// much spent on it without giving anything up is a shape to leave.
     since_roll: usize,
+    /// How much that is, for the shape in hand.
+    patience: usize,
     candidate: Option<(Map, Search)>,
 }
 
 impl Run {
-    pub fn new(recipe: &Recipe) -> Self {
+    /// A run started from a seed. Two runs given one seed lay out the same
+    /// boards, which is what lets a check be a check rather than a sample of
+    /// whatever the machine felt like that morning.
+    pub fn seeded(recipe: &Recipe, seed: u64) -> Self {
+        Self::from_parts(*recipe, StdRng::seed_from_u64(seed))
+    }
+
+    fn from_parts(recipe: Recipe, rng: StdRng) -> Self {
         Self {
-            recipe: *recipe,
-            demand: None,
-            budget: budget_for(recipe),
+            budget: budget_for(&recipe),
             attempts_left: recipe.attempts.max(1),
+            patience: patience_for(&recipe),
+            recipe,
+            rng,
+            demand: None,
             attempted: 0,
             rolled: 0,
             spent: 0,
@@ -697,7 +727,17 @@ impl Run {
     /// stops looking promising, so what a player waits on is a board arriving
     /// rather than one shape being ground at until it gives in.
     pub fn rolling(demand: Demand) -> Self {
-        let mut run = Self::new(&roll(&mut rand::rng(), demand));
+        Self::rolling_from(StdRng::from_os_rng(), demand)
+    }
+
+    /// The same, started from a seed.
+    pub fn rolling_seeded(demand: Demand, seed: u64) -> Self {
+        Self::rolling_from(StdRng::seed_from_u64(seed), demand)
+    }
+
+    fn rolling_from(mut rng: StdRng, demand: Demand) -> Self {
+        let recipe = roll(&mut rng, demand);
+        let mut run = Self::from_parts(recipe, rng);
         run.demand = Some(demand);
         run.attempts_left = run.attempts_left.clamp(1, MOST_ROLL_ATTEMPTS);
         run.rolled = 1;
@@ -707,9 +747,11 @@ impl Run {
     /// Throws the shape in hand away and rolls another, keeping what the run has
     /// spent and what it is holding out for.
     fn reroll(&mut self, demand: Demand) {
-        self.recipe = roll(&mut rand::rng(), eased(demand, self.rolled));
+        let eased = eased(demand, self.rolled);
+        self.recipe = roll(&mut self.rng, eased);
         self.budget = budget_for(&self.recipe);
         self.attempts_left = self.recipe.attempts.clamp(1, MOST_ROLL_ATTEMPTS);
+        self.patience = patience_for(&self.recipe);
         self.since_roll = 0;
         self.rolled += 1;
         self.candidate = None;
@@ -742,7 +784,7 @@ impl Run {
                 // shape to leave rather than one to keep asking. Rolling
                 // another costs nothing and is the whole of why waiting on this
                 // ends.
-                if self.attempts_left == 0 || self.since_roll > PATIENCE {
+                if self.attempts_left == 0 || self.since_roll > self.patience {
                     let Some(demand) = self.demand else {
                         return Outcome::Barren;
                     };
@@ -750,8 +792,8 @@ impl Run {
                 }
                 self.attempts_left -= 1;
                 self.attempted += 1;
-                let mut rng = rand::rng();
-                let Some(map) = lay_out(&self.recipe, &mut rng) else {
+                let recipe = self.recipe;
+                let Some(map) = lay_out(&recipe, &mut self.rng) else {
                     continue;
                 };
                 if !validate(&map).is_empty() {
@@ -795,11 +837,18 @@ impl Run {
     }
 }
 
-/// A run taken to its end, for the batch tools that can afford to wait for the
-/// answer. The game itself never calls this. It spends a slice a frame on a
-/// [`Run`] instead, so the window keeps drawing while the search works.
-pub fn generate(recipe: &Recipe) -> Option<Map> {
-    let mut run = Run::new(recipe);
+/// A run taken to its end from a seed, for the batch tools that can afford to
+/// wait for the answer and want the same answer twice. The game itself never
+/// calls these. It spends a slice a frame on a [`Run`] instead, so the window
+/// keeps drawing while the search works, and it takes its chance from the
+/// machine rather than from a number, because a game that handed out the same
+/// board every time it was opened would be a worse game than a check is a
+/// check.
+pub fn generate_seeded(recipe: &Recipe, seed: u64) -> Option<Map> {
+    finish(Run::seeded(recipe, seed))
+}
+
+fn finish(mut run: Run) -> Option<Map> {
     loop {
         match run.advance(65_536) {
             Outcome::Working => {}
@@ -813,14 +862,12 @@ pub fn generate(recipe: &Recipe) -> Option<Map> {
 /// itself asks for. The batch tools read it here so what they report on is what
 /// the button does.
 pub fn generate_rolling(demand: Demand) -> Option<Map> {
-    let mut run = Run::rolling(demand);
-    loop {
-        match run.advance(65_536) {
-            Outcome::Working => {}
-            Outcome::Ready(map) => return Some(*map),
-            Outcome::Barren => return None,
-        }
-    }
+    finish(Run::rolling(demand))
+}
+
+/// The same from a seed.
+pub fn generate_rolling_seeded(demand: Demand, seed: u64) -> Option<Map> {
+    finish(Run::rolling_seeded(demand, seed))
 }
 
 fn describe(recipe: &Recipe) -> String {
