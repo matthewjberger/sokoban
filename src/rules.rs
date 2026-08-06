@@ -1613,8 +1613,15 @@ pub fn deadlocked(map: &Map, state: &MapState) -> bool {
     // other. The light counts too, because a power somebody can go and stand in
     // is a power they have.
     let abilities = map.latent_abilities();
+    // A boulder is never worked out of the corner it is in. It is taken off the
+    // board where it stands, so a pair of hands that could break it is a pair of
+    // hands that answers this before the square does.
+    let smashable = map.rules.stones_break_bare_handed && abilities.smashes;
     let lost = |entry: &CrateState| {
-        !entry.sunk && !map.goals.contains(&entry.at) && stranded(map, entry.at, abilities)
+        !entry.sunk
+            && !map.goals.contains(&entry.at)
+            && !(smashable && entry.kind == CrateKind::Stone)
+            && stranded(map, entry.at, abilities)
     };
     match map.rules.win {
         WinCondition::CratesOnGoals => state.crates.iter().any(lost),

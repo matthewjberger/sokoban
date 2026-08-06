@@ -161,9 +161,12 @@ fn the_engines_agree() {
             }
             (Truth::Impossible, Truth::Impossible) => checked += 1,
             (Truth::Unknown, _) | (_, Truth::Unknown) => {}
+            // A generated board is gone the moment the run that made it ends,
+            // so the board itself is the failure rather than its name.
             _ => panic!(
-                "{} is finished by one engine and not by the other",
-                map.name
+                "{} is finished by one engine and not by the other\n{}",
+                map.name,
+                crate::storage::to_json(map)
             ),
         }
     }
